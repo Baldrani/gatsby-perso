@@ -5,5 +5,18 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: `Title`,
+  },
+  plugins: [
+    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/articles`,
+      },
+    },
+  ]
   /* Your site config here */
 }
