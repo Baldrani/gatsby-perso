@@ -1,7 +1,6 @@
 import React, {Fragment} from "react"
 import Layout from "../components/layout"
-import request from "request-promise";
-import {Link} from "gatsby"
+import {Link, graphql} from "gatsby"
 
 import styled from 'styled-components/macro';
 
@@ -12,24 +11,20 @@ const GistTitle = styled.h3`
   color: palevioletred;
 `;
 
+export default (props) => {
 
-const getGists = async () => {
-  const body = await request(`https://api.github.com/users/Baldrani/gists`);
-  const content = JSON.parse(body);
-  return content
-}
+  const gists = props.data.allGist.edges;
 
-export default () => {
-  const gists = getGists()
-  if (gists !== undefined) { console.log(gists) }
+
   return (
     <Layout>
       <div>
         <p>Gists</p>
-        { gists?.map( gist => {
+        { gists.map( gist => {
+            const {id, description} = gist.node
             return(
-              <Fragment key={gist.id}>
-                <GistTitle><Link to={`/gist?id=${gist.id}`}>{gist.description}</Link></GistTitle>
+              <Fragment key={id}>
+                <GistTitle><Link to={`/gist?id=${id}`}>{description}</Link></GistTitle>
               </Fragment>
             )
           })
@@ -38,3 +33,16 @@ export default () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+    query GistssQuery {
+        allGist {
+            edges {
+                node {
+                    id
+                    description
+                }
+            }
+        }
+    }
+`;

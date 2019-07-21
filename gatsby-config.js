@@ -10,6 +10,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-transformer-remark`,
+    `gists`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -17,6 +18,19 @@ module.exports = {
         path: `${__dirname}/src/articles`,
       },
     },
+    {
+      resolve: "gatsby-remark-embed-gist",
+      options: {
+        // Optional:
+
+        // the github handler whose gists are to be accessed
+        username: 'Baldrani',
+
+        // a flag indicating whether the github default gist css should be included or not
+        // default: true
+        includeDefaultCss: true
+      }
+    }
   ]
   /* Your site config here */
 }

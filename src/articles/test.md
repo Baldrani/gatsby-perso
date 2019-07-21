@@ -16,3 +16,5 @@ export default = () => (
     </Fragment>
 )
 ````
+
+`gist:Baldrani/636985b3d29a818f9c20675dc5e10b25#file-snippet-js`
