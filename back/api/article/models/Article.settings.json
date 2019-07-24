@@ -1,0 +1,38 @@
+{
+  "connection": "default",
+  "collectionName": "articles",
+  "info": {
+    "name": "article",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "created_at": {
+      "default": "c",
+      "required": true,
+      "type": "date"
+    },
+    "cover": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "content": {
+      "type": "text",
+      "required": true
+    },
+    "categories": {
+      "collection": "category",
+      "via": "articles"
+    }
+  }
+}
