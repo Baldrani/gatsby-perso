@@ -22,7 +22,7 @@
     "gatsby-remark-embed-gist": "^1.1.9",
     "gatsby-source-filesystem": "^2.1.6",
     "gatsby-source-strapi": "0.0.9",
-    "gatsby-transformer-remark": "^2.6.9",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.2.4",
     "i18next": "^17.0.6",
     "i18next-browser-languagedetector": "^3.0.1",
